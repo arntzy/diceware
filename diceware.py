@@ -1,16 +1,11 @@
 import random
 import click
 
-word_list = "eff_large_wordlist.txt"
-number_of_dice = 5 
-#  number_of_words = 5
-
 def create_word_list_dictionary(word_list):
   word_list_dict = {}
-  with open(word_list) as file:
-    for line in file:
-      dice,word = line.split()
-      word_list_dict[dice] = word
+  for line in word_list:
+    dice,word = line.split()
+    word_list_dict[dice] = word
   return word_list_dict
 
 #  Roll a number of dice one time
@@ -21,7 +16,7 @@ def roll_dice(number_of_dice):
     roll += str(random.randint(1,6))
   return roll
 
-def generate_diceware_password(numberOfWords, numberOfDice=number_of_dice, wordlist=word_list):
+def generate_diceware_password(numberOfWords, wordlist, numberOfDice):
   password = ''
   words = create_word_list_dictionary(wordlist)
   for x in range(numberOfWords):
@@ -29,8 +24,9 @@ def generate_diceware_password(numberOfWords, numberOfDice=number_of_dice, wordl
   return password
 
 @click.command()
-#  @click.option('--dice', default=5, help='The number of dice to be rolled')
+@click.option('--dice', default=5, help='The number of dice to be rolled')
 @click.option('--words', default=5, help='The number of random words to generate')
-def cli(words):
+@click.argument('wordlist', type=click.File('rb'))
+def cli(words, wordlist, dice):
   """Generate a diceware password."""
-  click.echo(generate_diceware_password(numberOfWords=words))
+  click.echo(generate_diceware_password(numberOfWords=words, wordlist=wordlist, numberOfDice=dice))
