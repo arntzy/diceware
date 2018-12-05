@@ -1,14 +1,14 @@
 ### About
 - This is a diceware password generator CLI.
-- It uses a specific wordlist at the moment: *eff_large_wordlist.txt*
-- To use a different wordlist, make sure it is formatted similarly to *eff_large_wordlist.txt*,
+- It uses a specific wordlist at the moment: `eff_large_wordlist.txt`
+- To use a different wordlist, make sure it is formatted similarly to `eff_large_wordlist.txt`,
 and that the `--dice` option matches the number of dice in the file.
 
 ### Requirements
 - I use Anaconda for virtual enviroments.
 
 ### Installation
-- create and activate a python virtual environment with `conda env create -f environment.yml`
+- create and activate an anaconda virtual environment with `conda env create -f environment.yml`
 - install the command line application with `pip install .`
 
 ### Use
