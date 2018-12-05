@@ -1,10 +1,10 @@
 ### About
 - This is a diceware password generator CLI.
-- It uses a specific wordlist at the moment: eff_large_wordlist.txt
-- To use a different wordlist, make sure it is formatted similarly to eff_large_wordlist.txt,
+- It uses a specific wordlist at the moment: *eff_large_wordlist.txt*
+- To use a different wordlist, make sure it is formatted similarly to *eff_large_wordlist.txt*,
 and that the `--dice` option matches the number of dice in the file.
 
-## Requirements
+### Requirements
 - I use Anaconda for virtual enviroments.
 
 ### Installation
@@ -17,6 +17,7 @@ and that the `--dice` option matches the number of dice in the file.
 
 ### Help
 
+```
 Usage: diceware [OPTIONS] WORDLIST
 
   Generate a diceware password.
@@ -30,3 +31,4 @@ Options:
                        letter
   --random_case        Change the case of letters randomly
   --help               Show this message and exit.
+```
