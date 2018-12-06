@@ -48,15 +48,15 @@ def randomize_case(password, weight):
     return new_password
 
 @click.command()
-@click.option('--dice', default=5, help='The number of dice to be rolled')
-@click.option('--words', default=5, help='The number of random words to generate')
+@click.option('--dice', default=5, help='The number of dice to be rolled, default=5')
+@click.option('--words', default=5, help='The number of random words to generate, default=5')
 @click.option('--special_character', is_flag=True, help='Subsitute a special character for each instance of a letter')
 @click.option('--number', is_flag=True, help='Substitute a random number for each instance of a letter')
 @click.option('--random_case', is_flag=True, help='Change the case of letters randomly')
-@click.argument('wordlist', type=click.File('r'))
-def cli(words, wordlist, dice, random_case, special_character, number):
+@click.argument('path_to_wordlist', type=click.File('r'))
+def cli(words, path_to_wordlist, dice, random_case, special_character, number):
     """Generate a diceware password."""
-    diceware_password = generate_diceware_password(numberOfWords=words, wordlist=wordlist, numberOfDice=dice)
+    diceware_password = generate_diceware_password(numberOfWords=words, wordlist=path_to_wordlist, numberOfDice=dice)
     if random_case:
         weight = random.random()
         diceware_password = randomize_case(password=diceware_password, weight=weight)
