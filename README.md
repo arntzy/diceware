@@ -1,14 +1,20 @@
 ### About
-- This is a diceware password generator CLI.
+- This is a diceware password generator. It will generate a secure, easy-for-humans-to-remember password like:
+**unclogoverlayclimaticfogtimothy**
+
+- Also with number, special character and case options to appease sites demanding such password features:
+**u#cLogove4layCliMaticFogtimoThY**
+
 - It uses a specific wordlist at the moment: `eff_large_wordlist.txt`
 - To use a different wordlist, make sure it is formatted similarly to `eff_large_wordlist.txt`,
 and that the `--dice` option matches the number of dice in the file.
 
-### Requirements
-- I use Anaconda for virtual enviroments.
+### Requirements 
+- Python 3.6
+- The anaconda environment.yml has some packages with release numbers specific to Linux. Mac users can create a new python 3 virtual environment if desired.
 
 ### Installation
-- create and activate an anaconda virtual environment with `conda env create -f environment.yml`
+- (optional) Create and activate an anaconda virtual environment with `conda env create -f environment.yml`, or create a new virtual environment. 
 - install the command line application with `pip install .`
 
 ### Use
@@ -18,13 +24,13 @@ and that the `--dice` option matches the number of dice in the file.
 ### Help
 
 ```
-Usage: diceware [OPTIONS] WORDLIST
+Usage: diceware [OPTIONS] PATH_TO_WORDLIST
 
   Generate a diceware password.
 
 Options:
-  --dice INTEGER       The number of dice to be rolled
-  --words INTEGER      The number of random words to generate
+  --dice INTEGER       The number of dice to be rolled, default=5
+  --words INTEGER      The number of random words to generate, default=5
   --special_character  Subsitute a special character for each instance of a
                        letter
   --number             Substitute a random number for each instance of a
